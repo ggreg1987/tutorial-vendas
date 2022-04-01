@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -24,4 +25,11 @@ public class Cliente {
 
     @OneToMany(mappedBy = "cliente",orphanRemoval = true,cascade = CascadeType.ALL)
     private List<Pedido> pedidos;
+
+    public List<Pedido> getPedidos() {
+        if(pedidos == null) {
+            pedidos = new ArrayList<>();
+        }
+        return pedidos;
+    }
 }
