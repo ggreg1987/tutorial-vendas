@@ -21,4 +21,9 @@ public class ProdutoController {
         return service.salvar(dto);
     }
 
+    @GetMapping("{id}")
+    Produto pesquisarId(@PathVariable Long id) {
+        return service.pesquisarId(id);
+    }
+
 }
