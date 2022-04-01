@@ -10,4 +10,5 @@ public interface ClienteService {
     Cliente pesquisarId(Long id);
     List<Cliente> pesquisarTodos(Cliente filtro);
     Cliente update(Long id,Cliente cliente);
+    Long deletar(Long id);
 }
