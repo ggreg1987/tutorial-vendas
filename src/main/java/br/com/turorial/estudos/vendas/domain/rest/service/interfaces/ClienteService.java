@@ -5,4 +5,5 @@ import br.com.turorial.estudos.vendas.domain.rest.dto.ClienteDTO;
 
 public interface ClienteService {
     Cliente salvar(ClienteDTO dto);
+    Cliente pesquisarId(Long id);
 }
