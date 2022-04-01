@@ -7,6 +7,7 @@ import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.ClienteServ
 import br.com.turorial.estudos.vendas.exception.RegraNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -38,6 +39,12 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public List<Cliente> pesquisarTodos(Cliente filtro) {
+        ExampleMatcher exampleMatcher = ExampleMatcher
+                .matching()
+                .withIgnoreCase()
+
+
+
         Example example = Example.of(filtro);
     }
 }
