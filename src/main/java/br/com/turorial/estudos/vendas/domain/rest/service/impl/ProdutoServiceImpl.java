@@ -13,4 +13,14 @@ public class ProdutoServiceImpl implements ProdutoService {
 
     private final ProdutoRepository produtoRepository;
 
+    @Override
+    public Produto salvar(ProdutoDTO dto) {
+        Produto produto = Produto
+                .builder()
+                .descricao(dto.getDescricao())
+                .precoUnitario(dto.getPrecoUnitario())
+                .build();
+        return produtoRepository.save(produto);
+    }
+
 }
