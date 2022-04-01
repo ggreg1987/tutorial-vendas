@@ -47,4 +47,13 @@ public class ClienteServiceImpl implements ClienteService {
         Example example = Example.of(filtro,exampleMatcher);
         return clienteRepository.findAll(example);
     }
+
+    @Override
+    public Cliente update(Long id, Cliente cliente) {
+        return clienteRepository.findById(id)
+                .map(clienteEncontrado -> {
+                    cliente.setId(clienteEncontrado.getId());
+                    return cliente;
+                }).orElseThrow(() -> new RegraNotFoundException("Cliente não encontrado"));
+    }
 }
