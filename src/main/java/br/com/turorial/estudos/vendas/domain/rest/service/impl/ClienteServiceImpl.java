@@ -44,8 +44,6 @@ public class ClienteServiceImpl implements ClienteService {
                 .withIgnoreCase()
                 .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
 
-
-
-        Example example = Example.of(filtro);
+        Example example = Example.of(filtro,exampleMatcher);
     }
 }
