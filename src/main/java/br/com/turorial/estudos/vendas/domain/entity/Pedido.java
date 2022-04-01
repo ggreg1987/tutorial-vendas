@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,5 +32,12 @@ public class Pedido {
 
     @OneToMany(mappedBy = "pedido",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<ItemPedido> itens;
+
+    public List<ItemPedido> getItens() {
+        if(itens == null) {
+            itens = new ArrayList<>();
+        }
+        return itens;
+    }
 
 }
