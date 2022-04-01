@@ -16,6 +16,10 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public Cliente salvar(ClienteDTO dto) {
-        return null;
+        Cliente cliente = Cliente.builder()
+                .nome(dto.getNome())
+                .cpf(dto.getCpf())
+                .build();
+        return clienteRepository.save(cliente);
     }
 }
