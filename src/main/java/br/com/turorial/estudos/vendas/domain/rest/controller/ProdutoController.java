@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.HttpStatus.NO_CONTENT;
 
 @RestController
 @RequestMapping("/api/produto")
@@ -31,6 +32,12 @@ public class ProdutoController {
     @GetMapping
     List<Produto> pesquisar(Produto filtro) {
         return service.pesquisar(filtro);
+    }
+
+    @GetMapping("{id}")
+    @ResponseStatus(NO_CONTENT)
+    Produto deletar(@PathVariable Long id) {
+        return service.deletar(id);
     }
 
 }
