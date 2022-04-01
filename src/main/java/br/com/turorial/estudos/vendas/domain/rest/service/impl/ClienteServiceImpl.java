@@ -4,12 +4,14 @@ import br.com.turorial.estudos.vendas.domain.entity.Cliente;
 import br.com.turorial.estudos.vendas.domain.repository.ClienteRepository;
 import br.com.turorial.estudos.vendas.domain.rest.dto.ClienteDTO;
 import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.ClienteService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class ClienteServiceImpl implements ClienteService {
 
-    private ClienteRepository clienteRepository;
+    private final ClienteRepository clienteRepository;
 
 
     @Override
