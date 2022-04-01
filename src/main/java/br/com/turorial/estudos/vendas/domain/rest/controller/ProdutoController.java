@@ -6,6 +6,8 @@ import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.ProdutoServ
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
@@ -24,6 +26,11 @@ public class ProdutoController {
     @GetMapping("{id}")
     Produto pesquisarId(@PathVariable Long id) {
         return service.pesquisarId(id);
+    }
+
+    @GetMapping
+    List<Produto> pesquisar(Produto filtro) {
+        return service.pesquisar(filtro);
     }
 
 }
