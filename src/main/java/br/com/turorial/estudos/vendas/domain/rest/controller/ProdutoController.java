@@ -40,4 +40,9 @@ public class ProdutoController {
         return service.deletar(id);
     }
 
+    @PutMapping("{id}")
+    Produto update(@PathVariable Long id,@RequestBody Produto produto) {
+        return service.update(id,produto);
+    }
+
 }
