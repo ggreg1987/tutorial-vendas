@@ -4,6 +4,7 @@ import br.com.turorial.estudos.vendas.domain.entity.Cliente;
 import br.com.turorial.estudos.vendas.domain.repository.ClienteRepository;
 import br.com.turorial.estudos.vendas.domain.rest.dto.ClienteDTO;
 import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.ClienteService;
+import br.com.turorial.estudos.vendas.exception.RegraBadRequestException;
 import br.com.turorial.estudos.vendas.exception.RegraNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
@@ -64,6 +65,6 @@ public class ClienteServiceImpl implements ClienteService {
                     clienteRepository.deleteById(id);
                     return cliente.getId();
                 })
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST,"Cliente não encontrado"));
+                .orElseThrow(() -> new RegraBadRequestException("Cliente não encontrado"));
     }
 }
