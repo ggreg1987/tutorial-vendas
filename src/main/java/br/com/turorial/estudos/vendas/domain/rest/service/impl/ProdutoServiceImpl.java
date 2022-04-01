@@ -6,7 +6,11 @@ import br.com.turorial.estudos.vendas.domain.rest.dto.ProdutoDTO;
 import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.ProdutoService;
 import br.com.turorial.estudos.vendas.exception.RegraNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -29,5 +33,17 @@ public class ProdutoServiceImpl implements ProdutoService {
         return produtoRepository.findById(id)
                 .orElseThrow(() ->
                         new RegraNotFoundException("Produto não encontrado"));
+    }
+
+    @Override
+    public List<Produto> pesquisar(Produto filtro) {
+        ExampleMatcher exampleMatcher = ExampleMatcher
+                .matching()
+                .withIgnoreCase()
+                .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
+
+        Example example = Example.of(filtro,exampleMatcher);
+
+        return produtoRepository.findAll(example);
     }
 }
