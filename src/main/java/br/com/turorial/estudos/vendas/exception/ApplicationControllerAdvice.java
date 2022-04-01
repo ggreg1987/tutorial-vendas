@@ -14,4 +14,11 @@ public class ApplicationControllerAdvice {
         String message = ex.getMessage();
         return new ApiErrors(message);
     }
+
+    @ExceptionHandler(RegraBadRequestException.class)
+    @ResponseStatus(BAD_REQUEST)
+    public ApiErrors handdleRegraBadRequestException(RegraBadRequestException ex) {
+        String message = ex.getMessage();
+        return new ApiErrors(message);
+    }
 }
