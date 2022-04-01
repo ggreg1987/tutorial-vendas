@@ -32,4 +32,9 @@ public class ClienteController {
     List<Cliente> pesquisarTodos(Cliente filtro) {
         return service.pesquisarTodos(filtro);
     }
+
+    @PutMapping("{id}")
+    Cliente update(@PathVariable Long id,@RequestBody Cliente cliente) {
+        return service.update(id, cliente);
+    }
 }
