@@ -24,4 +24,8 @@ public class Pedido {
     private BigDecimal total;
     private LocalDate data;
 
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
+
 }
