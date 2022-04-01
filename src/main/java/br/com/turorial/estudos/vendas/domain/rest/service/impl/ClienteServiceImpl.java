@@ -45,5 +45,6 @@ public class ClienteServiceImpl implements ClienteService {
                 .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
 
         Example example = Example.of(filtro,exampleMatcher);
+        return clienteRepository.findAll(example);
     }
 }
