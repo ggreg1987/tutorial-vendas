@@ -37,4 +37,9 @@ public class ClienteController {
     Cliente update(@PathVariable Long id,@RequestBody Cliente cliente) {
         return service.update(id, cliente);
     }
+
+    @DeleteMapping("{id}")
+    Long deletar(@PathVariable Long id) {
+        return service.deletar(id);
+    }
 }
