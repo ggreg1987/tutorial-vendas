@@ -6,6 +6,8 @@ import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.ClienteServ
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
@@ -24,5 +26,10 @@ public class ClienteController {
     @GetMapping("{id}")
     Cliente pesquisarId(@PathVariable Long id) {
         return service.pesquisarId(id);
+    }
+
+    @GetMapping
+    List<Cliente> pesquisarTodos(Cliente filtro) {
+        return service.pesquisarTodos(filtro);
     }
 }
