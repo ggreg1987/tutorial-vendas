@@ -9,4 +9,5 @@ public interface ClienteService {
     Cliente salvar(ClienteDTO dto);
     Cliente pesquisarId(Long id);
     List<Cliente> pesquisarTodos(Cliente filtro);
+    Cliente update(Long id,Cliente cliente);
 }
