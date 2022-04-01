@@ -42,6 +42,7 @@ public class ClienteServiceImpl implements ClienteService {
         ExampleMatcher exampleMatcher = ExampleMatcher
                 .matching()
                 .withIgnoreCase()
+                .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
 
 
 
