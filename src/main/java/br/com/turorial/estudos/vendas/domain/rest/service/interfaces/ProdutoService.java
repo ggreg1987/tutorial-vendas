@@ -10,4 +10,5 @@ public interface ProdutoService {
     Produto salvar(ProdutoDTO dto);
     Produto pesquisarId(Long id);
     List<Produto> pesquisar(Produto filtro);
+    Produto deletar(Long id);
 }
