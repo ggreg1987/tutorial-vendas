@@ -56,4 +56,14 @@ public class ClienteServiceImpl implements ClienteService {
                     return cliente;
                 }).orElseThrow(() -> new RegraNotFoundException("Cliente não encontrado"));
     }
+
+    @Override
+    public Long deletar(Long id) {
+        return clienteRepository.findById(id)
+                .map(cliente -> {
+                    clienteRepository.deleteById(id);
+                    return cliente.getId();
+                })
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST,"Cliente não encontrado"));
+    }
 }
