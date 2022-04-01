@@ -20,4 +20,9 @@ public class ClienteController {
     Cliente salvar(@RequestBody ClienteDTO dto) {
         return service.salvar(dto);
     }
+
+    @GetMapping("{id}")
+    Cliente pesquisarId(@PathVariable Long id) {
+        return service.pesquisarId(id);
+    }
 }
