@@ -11,4 +11,5 @@ public interface ProdutoService {
     Produto pesquisarId(Long id);
     List<Produto> pesquisar(Produto filtro);
     Produto deletar(Long id);
+    Produto update(Long id,Produto produto);
 }
