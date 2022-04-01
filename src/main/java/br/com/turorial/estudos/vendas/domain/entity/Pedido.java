@@ -1,5 +1,6 @@
 package br.com.turorial.estudos.vendas.domain.entity;
 
+import br.com.turorial.estudos.vendas.domain.enums.StatusPedido;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,6 +32,9 @@ public class Pedido implements Serializable {
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+
+    @Enumerated(EnumType.STRING)
+    private StatusPedido statusPedido;
 
     @OneToMany(mappedBy = "pedido",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<ItemPedido> itens;
