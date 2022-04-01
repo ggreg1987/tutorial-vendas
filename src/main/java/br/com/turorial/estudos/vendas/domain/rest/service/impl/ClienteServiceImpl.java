@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ClienteServiceImpl implements ClienteService {
@@ -31,5 +33,10 @@ public class ClienteServiceImpl implements ClienteService {
         Cliente cliente = clienteRepository.findById(id)
                 .orElseThrow(() -> new RegraNotFoundException("Cliente não encontrado"));
         return cliente;
+    }
+
+    @Override
+    public List<Cliente> pesquisarTodos(Cliente filtro) {
+        return null;
     }
 }
