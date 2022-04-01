@@ -57,4 +57,15 @@ public class ProdutoServiceImpl implements ProdutoService {
                 }).orElseThrow(() ->
                         new RegraBadRequestException("Produto não encontrado"));
     }
+
+    @Override
+    public Produto update(Long id, Produto produto) {
+        return produtoRepository.findById(id)
+                .map(produtoEncontrado -> {
+                    produto.setId(produtoEncontrado.getId());
+                    produtoRepository.save(produto);
+                    return produto;
+                }).orElseThrow(() ->
+                        new RegraNotFoundException("Produto não encontrado"));
+    }
 }
