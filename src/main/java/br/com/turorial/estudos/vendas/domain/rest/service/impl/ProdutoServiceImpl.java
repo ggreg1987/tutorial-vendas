@@ -4,6 +4,7 @@ import br.com.turorial.estudos.vendas.domain.entity.Produto;
 import br.com.turorial.estudos.vendas.domain.repository.ProdutoRepository;
 import br.com.turorial.estudos.vendas.domain.rest.dto.ProdutoDTO;
 import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.ProdutoService;
+import br.com.turorial.estudos.vendas.exception.RegraBadRequestException;
 import br.com.turorial.estudos.vendas.exception.RegraNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
@@ -45,5 +46,15 @@ public class ProdutoServiceImpl implements ProdutoService {
         Example example = Example.of(filtro,exampleMatcher);
 
         return produtoRepository.findAll(example);
+    }
+
+    @Override
+    public Produto deletar(Long id) {
+        return produtoRepository.findById(id)
+                .map(idEncontrado -> {
+                    produtoRepository.deleteById(id);
+                    return idEncontrado;
+                }).orElseThrow(() ->
+                        new RegraBadRequestException("Produto não encontrado"));
     }
 }
