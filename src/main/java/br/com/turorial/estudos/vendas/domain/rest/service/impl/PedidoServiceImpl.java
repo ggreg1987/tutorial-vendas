@@ -47,7 +47,7 @@ public class PedidoServiceImpl implements PedidoService {
                                     new RegraBadRequestException("Código de produto inválido"));
 
                     BigDecimal preco = produto.getPrecoUnitario();
-
+                    Integer quantidade = dto.getQuantidade();
                 })
     }
 }
