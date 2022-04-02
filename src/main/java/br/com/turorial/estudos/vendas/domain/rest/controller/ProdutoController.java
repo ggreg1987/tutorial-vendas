@@ -34,7 +34,7 @@ public class ProdutoController {
         return service.pesquisar(filtro);
     }
 
-    @GetMapping("{id}")
+    @DeleteMapping("{id}")
     @ResponseStatus(NO_CONTENT)
     Produto deletar(@PathVariable Long id) {
         return service.deletar(id);
