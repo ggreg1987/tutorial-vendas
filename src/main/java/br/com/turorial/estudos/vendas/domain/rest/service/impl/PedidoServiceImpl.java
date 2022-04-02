@@ -9,6 +9,7 @@ import br.com.turorial.estudos.vendas.domain.repository.ProdutoRepository;
 import br.com.turorial.estudos.vendas.domain.rest.dto.ItemPedidoDTO;
 import br.com.turorial.estudos.vendas.domain.rest.dto.PedidoDTO;
 import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.PedidoService;
+import br.com.turorial.estudos.vendas.exception.RegraBadRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +30,8 @@ public class PedidoServiceImpl implements PedidoService {
     }
 
     private List<ItemPedido> items(Pedido pedido, List<ItemPedidoDTO> itens) {
-        
+        if(itens.isEmpty()) {
+            throw new RegraBadRequestException("Não é possível realizar pedido sem itens!");
+        }
     }
 }
