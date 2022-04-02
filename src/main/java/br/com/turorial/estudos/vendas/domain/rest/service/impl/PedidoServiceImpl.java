@@ -37,7 +37,8 @@ public class PedidoServiceImpl implements PedidoService {
         return itens
                 .stream()
                 .map(dto -> {
-                    
+                    Long produtoId = dto.getProduto();
+
                 })
     }
 }
