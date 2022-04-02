@@ -46,7 +46,7 @@ public class PedidoServiceImpl implements PedidoService {
                 .build();
 
         List<ItemPedido> itens = items(pedido, dto.getItens());
-        
+        itempedidoRepository.saveAll(itens);
 
 
     }
