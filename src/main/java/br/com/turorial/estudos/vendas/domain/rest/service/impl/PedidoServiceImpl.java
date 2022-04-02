@@ -53,6 +53,14 @@ public class PedidoServiceImpl implements PedidoService {
                     BigDecimal total = preco.multiply(quantidadeBig);
 
                     pedido.setTotal(total);
+
+                    ItemPedido builder = ItemPedido
+                            .builder()
+                            .pedido(pedido)
+                            .protudo(produto)
+                            .quantidade(quantidade)
+                            .build();
+
                 })
     }
 }
