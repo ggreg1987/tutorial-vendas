@@ -5,7 +5,9 @@ import br.com.turorial.estudos.vendas.domain.rest.dto.InformacoesItensPedidoDTO;
 import br.com.turorial.estudos.vendas.domain.rest.dto.InformacoesPedidoDTO;
 import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.InformacaoPedidoService;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -17,6 +19,8 @@ public class InformacaoPedidoImpl implements InformacaoPedidoService {
     }
 
     private List<InformacoesItensPedidoDTO> items(List<ItemPedido> itens) {
-
+        if(CollectionUtils.isEmpty(itens)) {
+            return Collections.emptyList();
+        }
     }
 }
