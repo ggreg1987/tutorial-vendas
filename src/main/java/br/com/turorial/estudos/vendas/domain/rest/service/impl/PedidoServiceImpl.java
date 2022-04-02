@@ -14,6 +14,7 @@ import br.com.turorial.estudos.vendas.exception.RegraBadRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -44,6 +45,9 @@ public class PedidoServiceImpl implements PedidoService {
                             .findById(produtoId)
                             .orElseThrow(() ->
                                     new RegraBadRequestException("Código de produto inválido"));
+
+                    BigDecimal preco = produto.getPrecoUnitario();
+
                 })
     }
 }
