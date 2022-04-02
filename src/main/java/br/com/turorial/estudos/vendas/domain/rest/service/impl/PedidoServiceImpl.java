@@ -1,8 +1,10 @@
 package br.com.turorial.estudos.vendas.domain.rest.service.impl;
 
+import br.com.turorial.estudos.vendas.domain.entity.Cliente;
 import br.com.turorial.estudos.vendas.domain.entity.ItemPedido;
 import br.com.turorial.estudos.vendas.domain.entity.Pedido;
 import br.com.turorial.estudos.vendas.domain.entity.Produto;
+import br.com.turorial.estudos.vendas.domain.enums.StatusPedido;
 import br.com.turorial.estudos.vendas.domain.repository.ClienteRepository;
 import br.com.turorial.estudos.vendas.domain.repository.ItempedidoRepository;
 import br.com.turorial.estudos.vendas.domain.repository.PedidoRepository;
@@ -15,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,9 +33,20 @@ public class PedidoServiceImpl implements PedidoService {
     @Override
     public Pedido salvar(PedidoDTO dto) {
         Long clienteId = dto.getCliente();
-        clienteRepository
+        Cliente cliente = clienteRepository
                 .findById(clienteId)
                 .orElseThrow(() -> new RegraBadRequestException("Cliente não encontrado"));
+
+        Pedido pedido = Pedido
+                .builder()
+                .cliente(cliente)
+                .total(dto.getTotal())
+                .statusPedido(StatusPedido.REALIZADO)
+                .data(LocalDate.now())
+                .build();
+
+
+
     }
 
     private List<ItemPedido> items(Pedido pedido, List<ItemPedidoDTO> itens) {
