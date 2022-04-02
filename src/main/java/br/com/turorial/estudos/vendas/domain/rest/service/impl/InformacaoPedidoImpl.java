@@ -26,7 +26,13 @@ public class InformacaoPedidoImpl implements InformacaoPedidoService {
         return itens
                 .stream()
                 .map(item -> {
-                    
+                    InformacoesItensPedidoDTO info = InformacoesItensPedidoDTO
+                            .builder()
+                            .precoUnitario(item.getProtudo().getPrecoUnitario())
+                            .quantidade(item.getQuantidade())
+                            .descricaoProduto(item.getProtudo().getDescricao())
+                            .build();
+                    return info;
                 })
     }
 }
