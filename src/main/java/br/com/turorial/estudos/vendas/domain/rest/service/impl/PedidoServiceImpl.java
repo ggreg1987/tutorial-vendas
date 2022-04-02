@@ -49,6 +49,8 @@ public class PedidoServiceImpl implements PedidoService {
                     BigDecimal preco = produto.getPrecoUnitario();
                     Integer quantidade = dto.getQuantidade();
                     BigDecimal multiplicar = new BigDecimal(quantidade);
+
+                    BigDecimal total = preco.multiply(multiplicar);
                 })
     }
 }
