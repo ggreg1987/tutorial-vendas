@@ -15,6 +15,7 @@ import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.PedidoServi
 import br.com.turorial.estudos.vendas.exception.RegraBadRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -31,6 +32,7 @@ public class PedidoServiceImpl implements PedidoService {
     private final ItempedidoRepository itempedidoRepository;
 
     @Override
+    @Transactional
     public Pedido salvar(PedidoDTO dto) {
         Long clienteId = dto.getCliente();
         Cliente cliente = clienteRepository
