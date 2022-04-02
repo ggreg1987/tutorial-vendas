@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -60,7 +61,7 @@ public class PedidoServiceImpl implements PedidoService {
                             .protudo(produto)
                             .quantidade(quantidade)
                             .build();
-
+                    return builder;
                 })
     }
 }
