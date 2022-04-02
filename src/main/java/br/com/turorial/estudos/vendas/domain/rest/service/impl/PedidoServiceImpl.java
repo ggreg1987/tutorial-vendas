@@ -29,7 +29,10 @@ public class PedidoServiceImpl implements PedidoService {
 
     @Override
     public Pedido salvar(PedidoDTO dto) {
-        return null;
+        Long clienteId = dto.getCliente();
+        clienteRepository
+                .findById(clienteId)
+                .orElseThrow(() -> new RegraBadRequestException("Cliente não encontrado"));
     }
 
     private List<ItemPedido> items(Pedido pedido, List<ItemPedidoDTO> itens) {
