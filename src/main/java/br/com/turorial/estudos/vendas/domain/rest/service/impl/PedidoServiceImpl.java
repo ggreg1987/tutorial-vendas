@@ -28,7 +28,7 @@ public class PedidoServiceImpl implements PedidoService {
         return null;
     }
 
-    private List<ItemPedido> items(Pedido pedido, ItemPedidoDTO itens) {
-
+    private List<ItemPedido> items(Pedido pedido, List<ItemPedidoDTO> itens) {
+        
     }
 }
