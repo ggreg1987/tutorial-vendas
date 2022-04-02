@@ -22,5 +22,11 @@ public class InformacaoPedidoImpl implements InformacaoPedidoService {
         if(CollectionUtils.isEmpty(itens)) {
             return Collections.emptyList();
         }
+
+        return itens
+                .stream()
+                .map(item -> {
+                    
+                })
     }
 }
