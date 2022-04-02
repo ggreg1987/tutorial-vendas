@@ -62,6 +62,6 @@ public class PedidoServiceImpl implements PedidoService {
                             .quantidade(quantidade)
                             .build();
                     return itemPedido;
-                })
+                }).collect(Collectors.toList());
     }
 }
