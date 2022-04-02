@@ -1,6 +1,7 @@
 package br.com.turorial.estudos.vendas.domain.rest.service.impl;
 
 import br.com.turorial.estudos.vendas.domain.entity.ItemPedido;
+import br.com.turorial.estudos.vendas.domain.entity.Pedido;
 import br.com.turorial.estudos.vendas.domain.rest.dto.InformacoesItensPedidoDTO;
 import br.com.turorial.estudos.vendas.domain.rest.dto.InformacoesPedidoDTO;
 import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.InformacaoPedidoService;
@@ -35,5 +36,9 @@ public class InformacaoPedidoImpl implements InformacaoPedidoService {
                             .build();
                     return info;
                 }).collect(Collectors.toList());
+    }
+
+    private InformacoesPedidoDTO pedido(Pedido pedido) {
+        
     }
 }
