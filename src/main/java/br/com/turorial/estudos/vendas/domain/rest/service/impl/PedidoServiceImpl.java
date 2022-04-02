@@ -45,6 +45,8 @@ public class PedidoServiceImpl implements PedidoService {
                 .data(LocalDate.now())
                 .build();
 
+        List<ItemPedido> itens = items(pedido, dto.getItens());
+        
 
 
     }
