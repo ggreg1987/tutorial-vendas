@@ -2,6 +2,7 @@ package br.com.turorial.estudos.vendas.domain.rest.service.impl;
 
 import br.com.turorial.estudos.vendas.domain.entity.ItemPedido;
 import br.com.turorial.estudos.vendas.domain.entity.Pedido;
+import br.com.turorial.estudos.vendas.domain.entity.Produto;
 import br.com.turorial.estudos.vendas.domain.repository.ClienteRepository;
 import br.com.turorial.estudos.vendas.domain.repository.ItempedidoRepository;
 import br.com.turorial.estudos.vendas.domain.repository.PedidoRepository;
@@ -39,6 +40,10 @@ public class PedidoServiceImpl implements PedidoService {
                 .map(dto -> {
                     Long produtoId = dto.getProduto();
 
+                    Produto produto = produtoRepository
+                            .findById(produtoId)
+                            .orElseThrow(() ->
+                                    new RegraBadRequestException("Código de produto inválido"));
                 })
     }
 }
