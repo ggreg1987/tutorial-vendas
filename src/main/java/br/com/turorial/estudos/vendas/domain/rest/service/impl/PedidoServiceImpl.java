@@ -55,13 +55,13 @@ public class PedidoServiceImpl implements PedidoService {
 
                     pedido.setTotal(total);
 
-                    ItemPedido builder = ItemPedido
+                    ItemPedido itemPedido = ItemPedido
                             .builder()
                             .pedido(pedido)
                             .protudo(produto)
                             .quantidade(quantidade)
                             .build();
-                    return builder;
+                    return itemPedido;
                 })
     }
 }
