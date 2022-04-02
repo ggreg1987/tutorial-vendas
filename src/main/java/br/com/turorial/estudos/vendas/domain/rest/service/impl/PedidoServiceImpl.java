@@ -33,5 +33,11 @@ public class PedidoServiceImpl implements PedidoService {
         if(itens.isEmpty()) {
             throw new RegraBadRequestException("Não é possível realizar pedido sem itens!");
         }
+
+        return itens
+                .stream()
+                .map(dto -> {
+                    
+                })
     }
 }
