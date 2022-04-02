@@ -48,8 +48,7 @@ public class PedidoServiceImpl implements PedidoService {
         List<ItemPedido> itens = items(pedido, dto.getItens());
         itempedidoRepository.saveAll(itens);
         pedido.setItens(itens);
-
-
+        return pedidoRepository.save(pedido);
     }
 
     private List<ItemPedido> items(Pedido pedido, List<ItemPedidoDTO> itens) {
