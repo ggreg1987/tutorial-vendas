@@ -9,6 +9,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class InformacaoPedidoImpl implements InformacaoPedidoService {
@@ -33,6 +34,6 @@ public class InformacaoPedidoImpl implements InformacaoPedidoService {
                             .descricaoProduto(item.getProtudo().getDescricao())
                             .build();
                     return info;
-                })
+                }).collect(Collectors.toList());
     }
 }
