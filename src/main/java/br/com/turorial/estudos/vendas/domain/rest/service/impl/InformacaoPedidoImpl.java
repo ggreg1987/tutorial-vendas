@@ -6,6 +6,7 @@ import br.com.turorial.estudos.vendas.domain.repository.PedidoRepository;
 import br.com.turorial.estudos.vendas.domain.rest.dto.InformacoesItensPedidoDTO;
 import br.com.turorial.estudos.vendas.domain.rest.dto.InformacoesPedidoDTO;
 import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.InformacaoPedidoService;
+import br.com.turorial.estudos.vendas.exception.RegraNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -13,6 +14,7 @@ import org.springframework.util.CollectionUtils;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,7 +25,11 @@ public class InformacaoPedidoImpl implements InformacaoPedidoService {
 
     @Override
     public InformacoesPedidoDTO informacaoPedidoCompleto(Long id) {
-        return null;
+        InformacoesPedidoDTO pedido = pedidoRepository
+                .procurarPedido(id)
+                .map(pedidoEncontrado -> pedido(pedidoEncontrado))
+                .orElseThrow(() -> new RegraNotFoundException("Pedido não encontrado"));
+        return pedido;
     }
 
     private List<InformacoesItensPedidoDTO> items(List<ItemPedido> itens) {
