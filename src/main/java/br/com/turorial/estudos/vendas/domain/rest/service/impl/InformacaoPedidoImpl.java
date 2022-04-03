@@ -70,6 +70,10 @@ public class InformacaoPedidoImpl implements InformacaoPedidoService {
 
     @Override
     public void atualizarStatus(Long id, StatusPedido status) {
-        
+        pedidoRepository.findById(id)
+                .map(pedido -> {
+                    pedido.setStatusPedido(status);
+                    return pedidoRepository.save(pedido);
+                }).orElseThrow(() -> new RegraNotFoundException("Pedido não encontrado"));
     }
 }
