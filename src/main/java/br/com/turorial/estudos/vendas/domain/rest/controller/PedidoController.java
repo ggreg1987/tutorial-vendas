@@ -1,6 +1,7 @@
 package br.com.turorial.estudos.vendas.domain.rest.controller;
 
 import br.com.turorial.estudos.vendas.domain.entity.Pedido;
+import br.com.turorial.estudos.vendas.domain.rest.dto.InformacoesPedidoDTO;
 import br.com.turorial.estudos.vendas.domain.rest.dto.PedidoDTO;
 import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.InformacaoPedidoService;
 import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.PedidoService;
@@ -22,5 +23,10 @@ public class PedidoController {
     public Long salvar(@RequestBody PedidoDTO dto) {
         Pedido pedido = service.salvar(dto);
         return pedido.getId();
+    }
+
+    @GetMapping("{id}")
+    InformacoesPedidoDTO informacaoPedidoCompleto(@PathVariable Long id) {
+        return infoService.informacaoPedidoCompleto(id);
     }
 }
