@@ -8,6 +8,7 @@ import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.InformacaoP
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -39,6 +40,19 @@ public class InformacaoPedidoImpl implements InformacaoPedidoService {
     }
 
     private InformacoesPedidoDTO pedido(Pedido pedido) {
-        
+        return InformacoesPedidoDTO
+                .builder()
+                .pedidoId(pedido.getId())
+                .nomeCliente(pedido.getCliente().getNome())
+                .cpfCliente(pedido.getCliente().getCpf())
+                .dataPedido(
+                        pedido.getData().
+                                format(DateTimeFormatter
+                                        .ofPattern("dd/MM/yyyy"))
+                ).status(pedido.getStatusPedido().name())
+                .total(pedido.getTotal())
+                .itensCliente(items(pedido.getItens()))
+                .build();
+
     }
 }
