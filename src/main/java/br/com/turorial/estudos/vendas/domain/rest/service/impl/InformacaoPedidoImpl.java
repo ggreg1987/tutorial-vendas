@@ -2,6 +2,7 @@ package br.com.turorial.estudos.vendas.domain.rest.service.impl;
 
 import br.com.turorial.estudos.vendas.domain.entity.ItemPedido;
 import br.com.turorial.estudos.vendas.domain.entity.Pedido;
+import br.com.turorial.estudos.vendas.domain.enums.StatusPedido;
 import br.com.turorial.estudos.vendas.domain.repository.PedidoRepository;
 import br.com.turorial.estudos.vendas.domain.rest.dto.InformacoesItensPedidoDTO;
 import br.com.turorial.estudos.vendas.domain.rest.dto.InformacoesPedidoDTO;
@@ -65,5 +66,10 @@ public class InformacaoPedidoImpl implements InformacaoPedidoService {
                 .itensCliente(items(pedido.getItens()))
                 .build();
 
+    }
+
+    @Override
+    public void atualizarStatus(Long id, StatusPedido status) {
+        
     }
 }
