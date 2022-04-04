@@ -27,6 +27,6 @@ public class ApplicationControllerAdvice {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(BAD_REQUEST)
     public ApiErrors handleMethodNotValidException(MethodArgumentNotValidException ex) {
-        ex.getBindingResult().getAllErrors().stream().map(erro -> )
+        ex.getBindingResult().getAllErrors().stream().map(erro -> erro.getDefaultMessage())
     }
 }
