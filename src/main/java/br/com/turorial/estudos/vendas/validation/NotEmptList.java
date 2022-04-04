@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = ConstraintValidationList.class)
 public @interface NotEmptList {
 
-    String mensagem() default "Lista não pode ser vazia";
+    String message() default "Lista não pode ser vazia";
 
     Class<?>[] groups() default { };
 

@@ -25,6 +25,6 @@ public class PedidoDTO {
     private BigDecimal total;
     private LocalDate dataPedido;
 
-    @NotEmptList(mensagem = "{campo.pedido-lista.obrigatoio}")
+    @NotEmptList(message = "{campo.pedido-lista.obrigatoio}")
     private List<ItemPedidoDTO> itens;
 }
