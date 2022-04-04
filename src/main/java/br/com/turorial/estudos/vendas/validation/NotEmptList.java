@@ -10,4 +10,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Constraint(validatedBy = ConstraintValidationList.class)
 public @interface NotEmptList {
+
+    String mensagem() default "Lista não pode ser vazia";
 }
