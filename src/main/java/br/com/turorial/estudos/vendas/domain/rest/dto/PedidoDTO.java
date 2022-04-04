@@ -1,5 +1,6 @@
 package br.com.turorial.estudos.vendas.domain.rest.dto;
 
+import br.com.turorial.estudos.vendas.validation.NotEmptList;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,5 +24,7 @@ public class PedidoDTO {
     @NotNull(message = "{campo.total-pedido.obrigatorio}")
     private BigDecimal total;
     private LocalDate dataPedido;
+
+    @NotEmptList(mensagem = "{campo.pedido-lista.obrigatoio}")
     private List<ItemPedidoDTO> itens;
 }
