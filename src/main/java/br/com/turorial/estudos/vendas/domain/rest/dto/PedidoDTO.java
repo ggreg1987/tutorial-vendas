@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class PedidoDTO {
 
+    @NotEmpty(message = "{campo.codigo-cliente.obrigatorio}")
     private Long cliente;
     private BigDecimal total;
     private LocalDate dataPedido;
