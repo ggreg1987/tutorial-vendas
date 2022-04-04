@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
 
 @Data
@@ -15,6 +16,7 @@ public class ProdutoDTO {
 
     private Long produto;
 
+    @NotEmpty(message = "{campo.descricao.obrigatorio}")
     private String descricao;
     private BigDecimal precoUnitario;
 }
