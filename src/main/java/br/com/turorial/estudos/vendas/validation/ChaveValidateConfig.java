@@ -22,6 +22,8 @@ public class ChaveValidateConfig {
 
     @Bean
     public LocalValidatorFactoryBean localValidatorFactoryBean() {
+        LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
+
 
     }
 }
