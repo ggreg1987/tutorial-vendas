@@ -35,5 +35,6 @@ public class ApplicationControllerAdvice {
                 .stream()
                 .map(erro -> erro.getDefaultMessage())
                 .collect(Collectors.toList());
+        return new ApiErrors(lista);
     }
 }
