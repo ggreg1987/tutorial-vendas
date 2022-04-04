@@ -24,6 +24,7 @@ public class ChaveValidateConfig {
     public LocalValidatorFactoryBean localValidatorFactoryBean() {
         LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
         localValidatorFactoryBean.setValidationMessageSource(messageSource());
+        return localValidatorFactoryBean;
 
 
     }
