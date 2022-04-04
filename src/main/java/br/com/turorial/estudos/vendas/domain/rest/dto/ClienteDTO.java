@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotEmpty;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -12,6 +14,8 @@ import lombok.NoArgsConstructor;
 public class ClienteDTO {
 
     private Long cliente;
+
+    @NotEmpty(message = "{campo.nome.obrigatorio}")
     private String nome;
     private String cpf;
 }
