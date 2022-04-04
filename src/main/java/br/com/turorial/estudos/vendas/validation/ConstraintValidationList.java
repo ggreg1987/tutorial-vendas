@@ -2,16 +2,17 @@ package br.com.turorial.estudos.vendas.validation;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.lang.annotation.Annotation;
+import java.util.List;
 
-public class ConstraintValidationList implements ConstraintValidator {
+public class ConstraintValidationList implements ConstraintValidator<NotEmptList, List> {
+
     @Override
-    public void initialize(Annotation constraintAnnotation) {
+    public void initialize(NotEmptList constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
     }
 
     @Override
-    public boolean isValid(Object value, ConstraintValidatorContext context) {
+    public boolean isValid(List value, ConstraintValidatorContext context) {
         return false;
     }
 }
