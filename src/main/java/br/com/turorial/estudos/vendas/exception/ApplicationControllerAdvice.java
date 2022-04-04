@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @RestControllerAdvice
@@ -29,7 +30,7 @@ public class ApplicationControllerAdvice {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(BAD_REQUEST)
     public ApiErrors handleMethodNotValidException(MethodArgumentNotValidException ex) {
-        ex.getBindingResult()
+        List<String> lista = ex.getBindingResult()
                 .getAllErrors()
                 .stream()
                 .map(erro -> erro.getDefaultMessage())
