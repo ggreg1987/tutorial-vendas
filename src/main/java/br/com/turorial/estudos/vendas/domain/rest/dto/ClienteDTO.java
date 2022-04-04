@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.br.*;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -19,5 +20,6 @@ public class ClienteDTO {
     private String nome;
 
     @NotEmpty(message = "{campo.cpf.obrigatorio}")
+    @CPF(message = "{campo.cpf.invalido}")
     private String cpf;
 }
