@@ -11,5 +11,6 @@ public class ChaveValidateConfig {
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("classpath:mensage");
     }
 }
