@@ -12,5 +12,6 @@ public class ChaveValidateConfig {
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasename("classpath:mensage");
+        messageSource.setDefaultEncoding("ISO-8859-1");
     }
 }
