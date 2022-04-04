@@ -10,6 +10,8 @@ import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.PedidoServi
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 import static org.springframework.http.HttpStatus.*;
 
 @RestController
@@ -22,7 +24,7 @@ public class PedidoController {
 
     @PostMapping
     @ResponseStatus(CREATED)
-    public Long salvar(@RequestBody PedidoDTO dto) {
+    public Long salvar(@RequestBody @Valid PedidoDTO dto) {
         Pedido pedido = service.salvar(dto);
         return pedido.getId();
     }

@@ -6,6 +6,7 @@ import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.ProdutoServ
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
@@ -20,7 +21,7 @@ public class ProdutoController {
 
     @PostMapping
     @ResponseStatus(CREATED)
-    Produto salvar(@RequestBody ProdutoDTO dto) {
+    Produto salvar(@RequestBody @Valid ProdutoDTO dto) {
         return service.salvar(dto);
     }
 
@@ -41,7 +42,7 @@ public class ProdutoController {
     }
 
     @PutMapping("{id}")
-    Produto update(@PathVariable Long id,@RequestBody Produto produto) {
+    Produto update(@PathVariable Long id,@RequestBody @Valid Produto produto) {
         return service.update(id,produto);
     }
 

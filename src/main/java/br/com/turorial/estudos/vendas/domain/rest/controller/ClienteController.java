@@ -6,6 +6,7 @@ import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.ClienteServ
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
@@ -19,7 +20,7 @@ public class ClienteController {
 
     @PostMapping
     @ResponseStatus(CREATED)
-    Cliente salvar(@RequestBody ClienteDTO dto) {
+    Cliente salvar(@RequestBody @Valid ClienteDTO dto) {
         return service.salvar(dto);
     }
 
@@ -34,7 +35,7 @@ public class ClienteController {
     }
 
     @PutMapping("{id}")
-    Cliente update(@PathVariable Long id,@RequestBody Cliente cliente) {
+    Cliente update(@PathVariable Long id,@RequestBody @Valid Cliente cliente) {
         return service.update(id, cliente);
     }
 
