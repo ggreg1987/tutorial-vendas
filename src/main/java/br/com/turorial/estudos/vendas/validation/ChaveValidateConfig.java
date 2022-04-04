@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 
+import java.util.Locale;
+
 @Configuration
 public class ChaveValidateConfig {
 
@@ -13,5 +15,7 @@ public class ChaveValidateConfig {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasename("classpath:mensage");
         messageSource.setDefaultEncoding("ISO-8859-1");
+
+        return messageSource;
     }
 }
