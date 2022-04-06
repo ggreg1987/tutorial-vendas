@@ -29,7 +29,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/api/cliente/**")
                         .hasAnyRole("USER","ADMIN")
                     .antMatchers("/api/pedido/**")
-                
+                        .hasAnyRole("USER","ADMIN")
+
 
     }
 }
