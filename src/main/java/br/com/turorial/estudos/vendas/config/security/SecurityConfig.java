@@ -28,6 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeHttpRequests()
                     .antMatchers("/api/cliente/**")
                         .hasAnyRole("USER","ADMIN")
+                    .antMatchers("/api/pedido/**")
+                
 
     }
 }
