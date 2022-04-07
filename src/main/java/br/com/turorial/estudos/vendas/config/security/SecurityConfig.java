@@ -1,5 +1,7 @@
 package br.com.turorial.estudos.vendas.config.security;
 
+import br.com.turorial.estudos.vendas.domain.rest.service.impl.UsuarioServiceImpl;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,7 +11,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private UsuarioServiceImpl usuarioService;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
