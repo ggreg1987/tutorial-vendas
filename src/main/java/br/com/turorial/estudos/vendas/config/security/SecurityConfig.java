@@ -3,6 +3,7 @@ package br.com.turorial.estudos.vendas.config.security;
 import br.com.turorial.estudos.vendas.domain.rest.service.impl.UsuarioServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -39,6 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .hasAnyRole("USER","ADMIN")
                     .antMatchers("/api/produto")
                         .hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/api/usuario")
                 .and()
                     .httpBasic();
 
