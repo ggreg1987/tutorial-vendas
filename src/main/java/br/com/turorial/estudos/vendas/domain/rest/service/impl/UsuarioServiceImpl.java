@@ -20,6 +20,8 @@ public class UsuarioServiceImpl implements UserDetailsService {
 
     @Transactional
     public Usuario salvar(Usuario usuario) {
+        String encoder = passwordEncoder.encode(usuario.getPassword());
+        usuario.setPassword(encoder);
         return usuarioRepository.save(usuario);
     }
 
@@ -33,7 +35,7 @@ public class UsuarioServiceImpl implements UserDetailsService {
         return User
                 .builder()
                 .username(usuario.getLogin())
-                .password(passwordEncoder.encode(usuario.getPassword()))
+                .password(usuario.getPassword())
                 .roles(roles)
                 .build();
     }
