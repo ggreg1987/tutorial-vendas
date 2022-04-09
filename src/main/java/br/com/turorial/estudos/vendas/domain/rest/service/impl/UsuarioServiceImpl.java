@@ -3,6 +3,8 @@ package br.com.turorial.estudos.vendas.domain.rest.service.impl;
 import br.com.turorial.estudos.vendas.domain.entity.Usuario;
 import br.com.turorial.estudos.vendas.domain.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,11 +14,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@RequiredArgsConstructor
 public class UsuarioServiceImpl implements UserDetailsService {
 
-    private final PasswordEncoder passwordEncoder;
-    private final UsuarioRepository usuarioRepository;
+
+    private PasswordEncoder passwordEncoder;
+    private UsuarioRepository usuarioRepository;
+
+    public UsuarioServiceImpl(@Lazy PasswordEncoder passwordEncoder,@Lazy UsuarioRepository usuarioRepository) {
+        this.passwordEncoder = passwordEncoder;
+        this.usuarioRepository = usuarioRepository;
+    }
 
     @Transactional
     public Usuario salvar(Usuario usuario) {
