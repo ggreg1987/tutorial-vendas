@@ -14,6 +14,6 @@ public class JwtService {
     private String assinatura;
 
     public String gerarToken(Usuario usuario) {
-        
+        Long expiracaoString = Long.valueOf(expiracao);
     }
 }
