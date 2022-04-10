@@ -32,4 +32,8 @@ public class JwtService {
                 .signWith(SignatureAlgorithm.HS512,assinatura)
                 .compact();
     }
+
+    public static void main(String[] args) {
+        
+    }
 }
