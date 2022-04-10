@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Date;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Service
 public class JwtService {
@@ -19,6 +20,6 @@ public class JwtService {
     public String gerarToken(Usuario usuario) {
         Long expiracaoString = Long.valueOf(expiracao);
         LocalDateTime now = LocalDateTime.now().plusMinutes(expiracaoString);
-        Date data = Date.from();
+        Date data = Date.from(now.atZone(ZoneId.systemDefault()));
     }
 }
