@@ -2,6 +2,7 @@ package br.com.turorial.estudos.vendas.config.jwt;
 
 import br.com.turorial.estudos.vendas.domain.entity.Usuario;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,7 @@ public class JwtService {
                 .builder()
                 .setSubject(usuario.getLogin())
                 .setExpiration(data)
-                
+                .signWith(SignatureAlgorithm.HS512,assinatura)
+                .compact();
     }
 }
