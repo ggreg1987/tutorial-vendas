@@ -19,10 +19,10 @@ import java.util.Date;
 @Service
 public class JwtService {
 
-    @Value("{security.jwt.expiracao}")
+    @Value("${security.jwt.expiracao}")
     private String expiracao;
 
-    @Value("{security.jwt.chave-assinatura}")
+    @Value("${security.jwt.chave-assinatura}")
     private String assinatura;
 
     public String gerarToken(Usuario usuario) {
