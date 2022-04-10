@@ -27,5 +27,7 @@ public class JwtService {
         return Jwts
                 .builder()
                 .setSubject(usuario.getLogin())
+                .setExpiration(data)
+                
     }
 }
