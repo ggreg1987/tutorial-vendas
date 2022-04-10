@@ -38,6 +38,6 @@ public class JwtService {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(VendasApplication.class);
-        context.getBean(JwtService.class);
+        JwtService bean = context.getBean(JwtService.class);
     }
 }
