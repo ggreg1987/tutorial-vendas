@@ -2,8 +2,10 @@ package br.com.turorial.estudos.vendas.config.jwt;
 
 import br.com.turorial.estudos.vendas.VendasApplication;
 import br.com.turorial.estudos.vendas.domain.entity.Usuario;
+import ch.qos.logback.core.net.SyslogOutputStream;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import net.bytebuddy.implementation.bind.MethodDelegationBinder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -44,5 +46,6 @@ public class JwtService {
                 .login("gabriel")
                 .build();
         String token = bean.gerarToken(usuario);
+        System.out.println(token);
     }
 }
