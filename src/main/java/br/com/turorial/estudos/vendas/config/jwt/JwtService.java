@@ -1,6 +1,7 @@
 package br.com.turorial.estudos.vendas.config.jwt;
 
 import br.com.turorial.estudos.vendas.domain.entity.Usuario;
+import io.jsonwebtoken.Jwts;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +23,7 @@ public class JwtService {
         Long expiracaoString = Long.valueOf(expiracao);
         LocalDateTime now = LocalDateTime.now().plusMinutes(expiracaoString);
         Date data = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
+
+        return Jwts
     }
 }
