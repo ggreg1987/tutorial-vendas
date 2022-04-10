@@ -25,5 +25,7 @@ public class JwtService {
         Date data = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
 
         return Jwts
+                .builder()
+                .setSubject(usuario.getLogin())
     }
 }
