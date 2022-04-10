@@ -43,6 +43,6 @@ public class JwtService {
                 .builder()
                 .login("gabriel")
                 .build();
-        bean.gerarToken(usuario);
+        String token = bean.gerarToken(usuario);
     }
 }
