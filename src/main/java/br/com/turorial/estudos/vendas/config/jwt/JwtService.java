@@ -4,6 +4,8 @@ import br.com.turorial.estudos.vendas.domain.entity.Usuario;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 public class JwtService {
 
@@ -15,5 +17,6 @@ public class JwtService {
 
     public String gerarToken(Usuario usuario) {
         Long expiracaoString = Long.valueOf(expiracao);
+        LocalDateTime now = LocalDateTime.now().plusMinutes(expiracaoString);
     }
 }
