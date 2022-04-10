@@ -39,5 +39,9 @@ public class JwtService {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(VendasApplication.class);
         JwtService bean = context.getBean(JwtService.class);
+        Usuario usuario = Usuario
+                .builder()
+                .login("gabriel")
+                .build();
     }
 }
