@@ -20,6 +20,6 @@ public class JwtService {
     public String gerarToken(Usuario usuario) {
         Long expiracaoString = Long.valueOf(expiracao);
         LocalDateTime now = LocalDateTime.now().plusMinutes(expiracaoString);
-        Date data = Date.from(now.atZone(ZoneId.systemDefault()));
+        Date data = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
     }
 }
