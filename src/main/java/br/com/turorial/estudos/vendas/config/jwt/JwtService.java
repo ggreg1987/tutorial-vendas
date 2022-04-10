@@ -1,9 +1,11 @@
 package br.com.turorial.estudos.vendas.config.jwt;
 
+import br.com.turorial.estudos.vendas.VendasApplication;
 import br.com.turorial.estudos.vendas.domain.entity.Usuario;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Service;
 
 
@@ -34,6 +36,6 @@ public class JwtService {
     }
 
     public static void main(String[] args) {
-        
+        SpringApplication.run(VendasApplication.class);
     }
 }
