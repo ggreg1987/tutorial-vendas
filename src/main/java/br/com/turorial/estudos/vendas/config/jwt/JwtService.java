@@ -4,9 +4,10 @@ import br.com.turorial.estudos.vendas.domain.entity.Usuario;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
+
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.Date;
 
 @Service
 public class JwtService {
