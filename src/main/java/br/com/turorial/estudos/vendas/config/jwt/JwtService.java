@@ -52,6 +52,7 @@ public class JwtService {
     private boolean tokenValido(String token) {
         try {
             Claims claims = obterClaims(token);
+            Date expiration = claims.getExpiration();
         }catch (Exception e) {
 
         }
