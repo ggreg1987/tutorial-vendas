@@ -62,8 +62,8 @@ public class JwtService {
         }
     }
 
-    public String obterLoginUsuario(String token) {
-        
+    public String obterLoginUsuario(String token) throws ExpiredJwtException {
+
     }
 
     public static void main(String[] args) {
