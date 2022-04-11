@@ -50,7 +50,11 @@ public class JwtService {
     }
 
     private boolean tokenValido(String token) {
-        
+        try {
+            
+        }catch (Exception e) {
+
+        }
     }
 
     public static void main(String[] args) {
