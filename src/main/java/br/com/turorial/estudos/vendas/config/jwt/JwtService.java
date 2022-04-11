@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 @Service
@@ -53,6 +54,8 @@ public class JwtService {
         try {
             Claims claims = obterClaims(token);
             Date expiration = claims.getExpiration();
+            LocalDateTime dateTime = LocalDateTime.from(expiration.toInstant()
+                    .atZone(ZoneId.systemDefault()));
         }catch (Exception e) {
 
         }
