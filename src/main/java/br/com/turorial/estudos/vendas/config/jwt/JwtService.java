@@ -3,6 +3,8 @@ package br.com.turorial.estudos.vendas.config.jwt;
 import br.com.turorial.estudos.vendas.VendasApplication;
 import br.com.turorial.estudos.vendas.domain.entity.Usuario;
 import ch.qos.logback.core.net.SyslogOutputStream;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import net.bytebuddy.implementation.bind.MethodDelegationBinder;
@@ -36,6 +38,10 @@ public class JwtService {
                 .setExpiration(data)
                 .signWith(SignatureAlgorithm.HS512,assinatura)
                 .compact();
+    }
+
+    public Claims obterClaims(Sgtring Token) throws ExpiredJwtException {
+        
     }
 
     public static void main(String[] args) {
