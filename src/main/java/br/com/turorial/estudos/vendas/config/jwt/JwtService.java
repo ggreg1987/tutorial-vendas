@@ -43,6 +43,7 @@ public class JwtService {
     public Claims obterClaims(Sgtring Token) throws ExpiredJwtException {
         return Jwts
                 .parser()
+                .setSigningKey(assinatura)
 
     }
 
