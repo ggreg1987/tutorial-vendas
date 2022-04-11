@@ -45,6 +45,7 @@ public class JwtService {
                 .parser()
                 .setSigningKey(assinatura)
                 .parseClaimsJws(token)
+                .getBody();
 
     }
 
