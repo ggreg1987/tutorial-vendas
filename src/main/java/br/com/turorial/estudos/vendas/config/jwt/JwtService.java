@@ -56,6 +56,7 @@ public class JwtService {
             Date expiration = claims.getExpiration();
             LocalDateTime dateTime = LocalDateTime.from(expiration.toInstant()
                     .atZone(ZoneId.systemDefault()));
+            return !LocalDateTime.now().isAfter(dateTime);
         }catch (Exception e) {
 
         }
