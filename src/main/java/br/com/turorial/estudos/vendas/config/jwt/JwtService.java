@@ -62,6 +62,10 @@ public class JwtService {
         }
     }
 
+    public String obterLoginUsuario(String token) {
+        
+    }
+
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(VendasApplication.class);
         JwtService bean = context.getBean(JwtService.class);
