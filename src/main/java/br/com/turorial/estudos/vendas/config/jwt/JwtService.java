@@ -51,7 +51,7 @@ public class JwtService {
 
     private boolean tokenValido(String token) {
         try {
-            
+            Claims claims = obterClaims(token);
         }catch (Exception e) {
 
         }
