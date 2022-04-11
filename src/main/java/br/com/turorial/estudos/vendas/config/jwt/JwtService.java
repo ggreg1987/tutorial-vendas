@@ -63,7 +63,7 @@ public class JwtService {
     }
 
     public String obterLoginUsuario(String token) throws ExpiredJwtException {
-
+        return obterClaims(token).getSubject();
     }
 
     public static void main(String[] args) {
