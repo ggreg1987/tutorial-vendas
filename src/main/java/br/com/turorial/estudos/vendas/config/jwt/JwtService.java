@@ -40,10 +40,11 @@ public class JwtService {
                 .compact();
     }
 
-    public Claims obterClaims(Sgtring Token) throws ExpiredJwtException {
+    public Claims obterClaims(String token) throws ExpiredJwtException {
         return Jwts
                 .parser()
                 .setSigningKey(assinatura)
+                .parseClaimsJws(token)
 
     }
 
