@@ -41,7 +41,9 @@ public class JwtService {
     }
 
     public Claims obterClaims(Sgtring Token) throws ExpiredJwtException {
-        
+        return Jwts
+                .parser()
+
     }
 
     public static void main(String[] args) {
