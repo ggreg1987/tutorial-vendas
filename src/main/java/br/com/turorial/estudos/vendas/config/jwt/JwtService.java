@@ -75,5 +75,8 @@ public class JwtService {
                 .build();
         String token = bean.gerarToken(usuario);
         System.out.println(token);
+
+        boolean tokenValido = bean.tokenValido(token);
+        System.out.println("O token é Válido? " + tokenValido);
     }
 }
