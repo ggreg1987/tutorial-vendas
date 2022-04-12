@@ -26,7 +26,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                                     throws ServletException, IOException {
         String authorization = request.getHeader("Authorization");
         if(authorization != null && authorization.startsWith("Bearer")) {
-            
+            String token = authorization.split(" ")[1];
         }
 
 
