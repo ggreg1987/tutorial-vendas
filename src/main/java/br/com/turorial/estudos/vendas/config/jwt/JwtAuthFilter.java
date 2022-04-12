@@ -2,6 +2,7 @@ package br.com.turorial.estudos.vendas.config.jwt;
 
 import br.com.turorial.estudos.vendas.domain.rest.service.impl.UsuarioServiceImpl;
 import io.jsonwebtoken.Claims;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -34,6 +35,9 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             if(tokenValido) {
                 String loginUsuario = jwtService.obterLoginUsuario(token);
                 UserDetails userDetails = usuarioService.loadUserByUsername(loginUsuario);
+                UsernamePasswordAuthenticationToken user =
+                        new UsernamePasswordAuthenticationToken(userDetails,
+                                null,userDetails.getAuthorities());
             }
         }
 
