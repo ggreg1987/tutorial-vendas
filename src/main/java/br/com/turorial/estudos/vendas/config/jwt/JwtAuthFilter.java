@@ -3,7 +3,9 @@ package br.com.turorial.estudos.vendas.config.jwt;
 import br.com.turorial.estudos.vendas.domain.rest.service.impl.UsuarioServiceImpl;
 import io.jsonwebtoken.Claims;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -38,6 +40,10 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 UsernamePasswordAuthenticationToken user =
                         new UsernamePasswordAuthenticationToken(userDetails,
                                 null,userDetails.getAuthorities());
+
+                user
+                        .setDetails(new WebAuthenticationDetailsSource()
+                                .buildDetails(request));
             }
         }
 
