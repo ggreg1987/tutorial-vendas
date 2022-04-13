@@ -7,6 +7,7 @@ import br.com.turorial.estudos.vendas.domain.rest.service.impl.UsuarioServiceImp
 import br.com.turorial.estudos.vendas.exception.SenhaInvalidaException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,12 +27,10 @@ public class UsuarioController {
     @PostMapping("/auth")
     public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais) {
         try {
-            usuarioService
-                    .autenticar(Usuario.builder()
-                            .login(credenciais.getLogin())
-                            .password(credenciais.getSenha())
-                            .build());
-
+            Usuario usuario = Usuario.builder()
+                    .login(credenciais.getLogin())
+                    .password(credenciais.getSenha())
+                    .build();
 
         } catch (UsernameNotFoundException e) {
 
