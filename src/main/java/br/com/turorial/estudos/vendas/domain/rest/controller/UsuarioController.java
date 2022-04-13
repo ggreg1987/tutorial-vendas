@@ -35,7 +35,7 @@ public class UsuarioController {
                     .build();
             UserDetails autenticar = usuarioService.autenticar(usuario);
             String token = jwtService.gerarToken(usuario);
-
+            return new TokenDTO(usuario.getLogin(), token);
         } catch (UsernameNotFoundException e) {
 
         } catch (SenhaInvalidaException e) {
