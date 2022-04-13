@@ -4,6 +4,7 @@ import br.com.turorial.estudos.vendas.domain.entity.Usuario;
 import br.com.turorial.estudos.vendas.domain.repository.UsuarioRepository;
 import br.com.turorial.estudos.vendas.exception.RegraBadRequestException;
 import br.com.turorial.estudos.vendas.exception.SenhaInvalidaException;
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -29,24 +30,23 @@ public class UsuarioServiceImpl implements UserDetailsService {
 
     @Transactional
     public Usuario salvar(Usuario usuario) {
-        String encoder = passwordEncoder.encode(usuario.getPassword());
-        usuario.setPassword(encoder);
-        return usuarioRepository.save(usuario);
+        boolean loginExistente = usuarioRepository.existsByLogin(usuario.getLogin());
+        if(loginExistente) {
+            throw new RegraBadRequestException("Usuário já existe no banco de dados");
+        } else {
+            String encoder = passwordEncoder.encode(usuario.getPassword());
+            usuario.setPassword(encoder);
+            return usuarioRepository.save(usuario);
+        }
     }
 
     public UserDetails autenticar(Usuario usuario) {
         UserDetails user = loadUserByUsername(usuario.getLogin());
-        boolean loginExistente = usuarioRepository.existsByLogin(String.valueOf(user));
-        if(loginExistente) {
-            throw new RegraBadRequestException("Login já existe.");
-        } else {
-            boolean matches = passwordEncoder.matches(usuario.getPassword(), user.getPassword());
-            if(matches) {
-                return user;
-            }
-            throw new SenhaInvalidaException();
+        boolean matches = passwordEncoder.matches(usuario.getPassword(), user.getPassword());
+        if(matches) {
+            return user;
         }
-
+        throw new SenhaInvalidaException();
     }
 
     @Override
