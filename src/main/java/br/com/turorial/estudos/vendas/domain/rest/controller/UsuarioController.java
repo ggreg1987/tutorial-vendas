@@ -4,6 +4,7 @@ import br.com.turorial.estudos.vendas.domain.entity.Usuario;
 import br.com.turorial.estudos.vendas.domain.rest.dto.CredenciaisDTO;
 import br.com.turorial.estudos.vendas.domain.rest.dto.TokenDTO;
 import br.com.turorial.estudos.vendas.domain.rest.service.impl.UsuarioServiceImpl;
+import br.com.turorial.estudos.vendas.exception.SenhaInvalidaException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -28,6 +29,8 @@ public class UsuarioController {
 
         } catch (UsernameNotFoundException e) {
 
+        } catch (SenhaInvalidaException e) {
+            
         }
     }
 
