@@ -6,6 +6,7 @@ import br.com.turorial.estudos.vendas.domain.rest.dto.TokenDTO;
 import br.com.turorial.estudos.vendas.domain.rest.service.impl.UsuarioServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,7 +24,11 @@ public class UsuarioController {
 
     @PostMapping("/auth")
     public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais) {
+        try {
 
+        } catch (UsernameNotFoundException e) {
+
+        }
     }
 
 }
