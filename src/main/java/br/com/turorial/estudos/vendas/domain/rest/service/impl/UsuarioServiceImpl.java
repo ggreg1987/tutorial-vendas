@@ -2,6 +2,7 @@ package br.com.turorial.estudos.vendas.domain.rest.service.impl;
 
 import br.com.turorial.estudos.vendas.domain.entity.Usuario;
 import br.com.turorial.estudos.vendas.domain.repository.UsuarioRepository;
+import br.com.turorial.estudos.vendas.exception.SenhaInvalidaException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -38,6 +39,7 @@ public class UsuarioServiceImpl implements UserDetailsService {
         if(matches) {
             return user;
         }
+        throw new SenhaInvalidaException();
     }
 
     @Override
