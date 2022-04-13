@@ -26,11 +26,17 @@ public class UsuarioController {
     @PostMapping("/auth")
     public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais) {
         try {
+            usuarioService
+                    .autenticar(Usuario.builder()
+                            .login(credenciais.getLogin())
+                            .password(credenciais.getSenha())
+                            .build());
+
 
         } catch (UsernameNotFoundException e) {
 
         } catch (SenhaInvalidaException e) {
-            
+
         }
     }
 
