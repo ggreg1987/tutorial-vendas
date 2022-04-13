@@ -1,6 +1,8 @@
 package br.com.turorial.estudos.vendas.domain.rest.controller;
 
 import br.com.turorial.estudos.vendas.domain.entity.Usuario;
+import br.com.turorial.estudos.vendas.domain.rest.dto.CredenciaisDTO;
+import br.com.turorial.estudos.vendas.domain.rest.dto.TokenDTO;
 import br.com.turorial.estudos.vendas.domain.rest.service.impl.UsuarioServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,11 @@ public class UsuarioController {
     @ResponseStatus(HttpStatus.CREATED)
     public Usuario salvar(@RequestBody Usuario usuario) {
         return usuarioService.salvar(usuario);
+    }
+
+    @PostMapping("/auth")
+    public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais) {
+
     }
 
 }
