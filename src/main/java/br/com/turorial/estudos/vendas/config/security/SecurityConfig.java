@@ -1,6 +1,7 @@
 package br.com.turorial.estudos.vendas.config.security;
 
 import br.com.turorial.estudos.vendas.config.jwt.JwtAuthFilter;
+import br.com.turorial.estudos.vendas.config.jwt.JwtService;
 import br.com.turorial.estudos.vendas.domain.rest.service.impl.UsuarioServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -19,11 +20,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     private final UsuarioServiceImpl usuarioService;
-    private final JwtAuthFilter jwtAuthFilter;
+    private final JwtService jwtService;
 
     @Bean
     public OncePerRequestFilter jwtFilter() {
-
+        
     }
 
 
