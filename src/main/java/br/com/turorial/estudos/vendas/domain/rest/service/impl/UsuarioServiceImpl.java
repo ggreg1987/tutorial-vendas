@@ -2,6 +2,7 @@ package br.com.turorial.estudos.vendas.domain.rest.service.impl;
 
 import br.com.turorial.estudos.vendas.domain.entity.Usuario;
 import br.com.turorial.estudos.vendas.domain.repository.UsuarioRepository;
+import br.com.turorial.estudos.vendas.exception.RegraBadRequestException;
 import br.com.turorial.estudos.vendas.exception.SenhaInvalidaException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,12 +37,16 @@ public class UsuarioServiceImpl implements UserDetailsService {
     public UserDetails autenticar(Usuario usuario) {
         UserDetails user = loadUserByUsername(usuario.getLogin());
         boolean loginExistente = usuarioRepository.existsByLogin(String.valueOf(user));
-        
-        boolean matches = passwordEncoder.matches(usuario.getPassword(), user.getPassword());
-        if(matches) {
-            return user;
+        if(loginExistente) {
+            throw new RegraBadRequestException("Login já existe.");
+        } else {
+            boolean matches = passwordEncoder.matches(usuario.getPassword(), user.getPassword());
+            if(matches) {
+                return user;
+            }
+            throw new SenhaInvalidaException();
         }
-        throw new SenhaInvalidaException();
+
     }
 
     @Override
