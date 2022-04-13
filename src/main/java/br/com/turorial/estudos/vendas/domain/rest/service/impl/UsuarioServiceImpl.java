@@ -33,7 +33,7 @@ public class UsuarioServiceImpl implements UserDetailsService {
     }
 
     public UserDetails autenticar(Usuario usuario) {
-        
+        UserDetails user = loadUserByUsername(usuario.getLogin());
     }
 
     @Override
