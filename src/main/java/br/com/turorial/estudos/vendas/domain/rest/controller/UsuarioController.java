@@ -1,5 +1,6 @@
 package br.com.turorial.estudos.vendas.domain.rest.controller;
 
+import br.com.turorial.estudos.vendas.config.jwt.JwtService;
 import br.com.turorial.estudos.vendas.domain.entity.Usuario;
 import br.com.turorial.estudos.vendas.domain.rest.dto.CredenciaisDTO;
 import br.com.turorial.estudos.vendas.domain.rest.dto.TokenDTO;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 public class UsuarioController {
 
     private final UsuarioServiceImpl usuarioService;
+    private final JwtService jwtService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
