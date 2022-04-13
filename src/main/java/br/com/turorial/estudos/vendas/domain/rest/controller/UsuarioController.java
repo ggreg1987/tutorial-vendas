@@ -31,6 +31,7 @@ public class UsuarioController {
                     .login(credenciais.getLogin())
                     .password(credenciais.getSenha())
                     .build();
+            UserDetails autenticar = usuarioService.autenticar(usuario);
 
         } catch (UsernameNotFoundException e) {
 
