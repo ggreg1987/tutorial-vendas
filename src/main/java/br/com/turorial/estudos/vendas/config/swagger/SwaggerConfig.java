@@ -16,6 +16,19 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
 
+    @Bean
+    public Docket docket() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .useDefaultResponseMessages(false)
+                .select()
+                .apis(RequestHandlerSelectors
+                        .basePackage("br.com.turorial.estudos.vendas.domain.rest.controller"))
+                .paths(PathSelectors.any())
+                .build()
+                .apiInfo(apiInfo());
+
+    }
+
     private Contact contact() {
         return new Contact("Gabriel Gregorio"
                 ,"https://github.com/ggreg1987"
@@ -31,16 +44,4 @@ public class SwaggerConfig {
                 .build();
     }
 
-    @Bean
-    public Docket docket() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .useDefaultResponseMessages(false)
-                .select()
-                .apis(RequestHandlerSelectors
-                        .basePackage("br.com.turorial.estudos.vendas.domain.rest.controller"))
-                .paths(PathSelectors.any())
-                .build()
-                .apiInfo(apiInfo());
-
-    }
 }

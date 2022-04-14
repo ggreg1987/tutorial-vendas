@@ -1,22 +1,16 @@
 package br.com.turorial.estudos.vendas.config.jwt;
-
 import br.com.turorial.estudos.vendas.VendasApplication;
 import br.com.turorial.estudos.vendas.domain.entity.Usuario;
-import ch.qos.logback.core.net.SyslogOutputStream;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import net.bytebuddy.implementation.bind.MethodDelegationBinder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Service;
-
-
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.Date;
 
 @Service
@@ -37,7 +31,7 @@ public class JwtService {
                 .builder()
                 .setSubject(usuario.getLogin())
                 .setExpiration(data)
-                .signWith(SignatureAlgorithm.HS512,assinatura)
+                .signWith(SignatureAlgorithm.HS512, assinatura)
                 .compact();
     }
 
@@ -57,7 +51,7 @@ public class JwtService {
             LocalDateTime dateTime = LocalDateTime.from(expiration.toInstant()
                     .atZone(ZoneId.systemDefault()));
             return !LocalDateTime.now().isAfter(dateTime);
-        }catch (Exception e) {
+        } catch (Exception e) {
             return false;
         }
     }
@@ -65,7 +59,7 @@ public class JwtService {
     public String obterLoginUsuario(String token) throws ExpiredJwtException {
         return obterClaims(token).getSubject();
     }
-/* Comentando o teste do token
+
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(VendasApplication.class);
         JwtService bean = context.getBean(JwtService.class);
@@ -79,6 +73,4 @@ public class JwtService {
         boolean tokenValido = bean.tokenValido(token);
         System.out.println("O token é Válido? " + tokenValido);
     }
-    
- */
 }
