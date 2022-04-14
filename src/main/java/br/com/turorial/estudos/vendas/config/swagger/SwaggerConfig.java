@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.RequestHandler;
 import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
@@ -37,5 +38,7 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors
                         .basePackage("br.com.turorial.estudos.vendas.domain.rest.controller"))
+                .paths(PathSelectors.any())
+
     }
 }
