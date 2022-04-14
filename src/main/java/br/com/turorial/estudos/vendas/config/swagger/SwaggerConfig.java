@@ -21,5 +21,6 @@ public class SwaggerConfig {
                 .title("API de Vendas")
                 .description("Tutorial de como fazer uma Api de Vendas")
                 .version("1.0")
+                .contact(contact())
     }
 }
