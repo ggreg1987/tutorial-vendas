@@ -65,7 +65,7 @@ public class JwtService {
     public String obterLoginUsuario(String token) throws ExpiredJwtException {
         return obterClaims(token).getSubject();
     }
-
+/* Comentando o teste do token
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(VendasApplication.class);
         JwtService bean = context.getBean(JwtService.class);
@@ -79,4 +79,6 @@ public class JwtService {
         boolean tokenValido = bean.tokenValido(token);
         System.out.println("O token é Válido? " + tokenValido);
     }
+    
+ */
 }
