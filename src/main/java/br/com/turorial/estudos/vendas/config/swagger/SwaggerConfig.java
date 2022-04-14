@@ -39,6 +39,8 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors
                         .basePackage("br.com.turorial.estudos.vendas.domain.rest.controller"))
                 .paths(PathSelectors.any())
+                .build()
+                .apiInfo(apiInfo());
 
     }
 }
