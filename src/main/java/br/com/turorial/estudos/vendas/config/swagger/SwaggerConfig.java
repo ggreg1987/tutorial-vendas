@@ -19,5 +19,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("API de Vendas")
+                .description("Tutorial de como fazer uma Api de Vendas")
+                
     }
 }
