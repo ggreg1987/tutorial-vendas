@@ -9,6 +9,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 
     private Contact contact() {
-        
+        return new Contact("Gabriel Gregorio"
+                ,"https://github.com/ggreg1987"
+                ,"gr3g1987@gmail.com");
     }
 }
