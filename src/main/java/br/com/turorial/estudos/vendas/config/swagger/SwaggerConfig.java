@@ -2,6 +2,7 @@ package br.com.turorial.estudos.vendas.config.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.core.context.SecurityContext;
 import springfox.documentation.RequestHandler;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -59,5 +60,9 @@ public class SwaggerConfig {
         List<SecurityReference> securityReferenceList =  new ArrayList<>();
         securityReferenceList.add(reference);
         return securityReferenceList;
+    }
+
+    private SecurityContext securityContext() {
+        
     }
 }
