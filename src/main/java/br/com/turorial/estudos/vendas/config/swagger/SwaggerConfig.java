@@ -50,6 +50,7 @@ public class SwaggerConfig {
     }
 
     private List<SecurityReference> references() {
-        AuthorizationScope authorizationScope = new AuthorizationScope()
+        AuthorizationScope authorizationScope =
+                new AuthorizationScope("global")
     }
 }
