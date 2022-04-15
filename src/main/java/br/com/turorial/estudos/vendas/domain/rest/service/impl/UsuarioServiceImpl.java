@@ -2,6 +2,8 @@ package br.com.turorial.estudos.vendas.domain.rest.service.impl;
 
 import br.com.turorial.estudos.vendas.domain.entity.Usuario;
 import br.com.turorial.estudos.vendas.domain.repository.UsuarioRepository;
+import br.com.turorial.estudos.vendas.domain.rest.dto.CredenciaisDTO;
+import br.com.turorial.estudos.vendas.domain.rest.dto.TokenDTO;
 import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.UsuarioService;
 import br.com.turorial.estudos.vendas.exception.RegraBadRequestException;
 import br.com.turorial.estudos.vendas.exception.SenhaInvalidaException;
@@ -39,6 +41,11 @@ public class UsuarioServiceImpl implements UserDetailsService, UsuarioService {
             usuario.setPassword(encoder);
             return usuarioRepository.save(usuario);
         }
+    }
+
+    @Override
+    public TokenDTO autenticarCredenciais(CredenciaisDTO credenciais) {
+        return null;
     }
 
     public UserDetails autenticar(Usuario usuario) {
