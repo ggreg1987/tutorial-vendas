@@ -52,5 +52,6 @@ public class SwaggerConfig {
     private List<SecurityReference> references() {
         AuthorizationScope authorizationScope =
                 new AuthorizationScope("global","accesssEveryThing");
+        AuthorizationScope[] scopes = new AuthorizationScope[1];
     }
 }
