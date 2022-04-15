@@ -54,5 +54,6 @@ public class SwaggerConfig {
                 new AuthorizationScope("global","accesssEveryThing");
         AuthorizationScope[] scopes = new AuthorizationScope[1];
         scopes[0] = authorizationScope;
+        SecurityReference reference = new SecurityReference("JWT",scopes);
     }
 }
