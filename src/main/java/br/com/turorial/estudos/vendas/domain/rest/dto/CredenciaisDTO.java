@@ -11,5 +11,7 @@ public class CredenciaisDTO {
 
     @NotEmpty(message = "{campo.login.obrigatorio}")
     private String login;
+
+    @NotEmpty(message = "{campo.senha.obrigatorio}")
     private String senha;
 }
