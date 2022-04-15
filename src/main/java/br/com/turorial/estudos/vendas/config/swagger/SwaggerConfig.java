@@ -66,5 +66,7 @@ public class SwaggerConfig {
         return SecurityContext
                 .builder()
                 .securityReferences(references())
+                .forPaths(PathSelectors.any())
+                .build();
     }
 }
