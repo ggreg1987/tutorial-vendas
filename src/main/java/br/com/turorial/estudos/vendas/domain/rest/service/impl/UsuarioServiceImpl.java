@@ -2,6 +2,7 @@ package br.com.turorial.estudos.vendas.domain.rest.service.impl;
 
 import br.com.turorial.estudos.vendas.domain.entity.Usuario;
 import br.com.turorial.estudos.vendas.domain.repository.UsuarioRepository;
+import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.UsuarioService;
 import br.com.turorial.estudos.vendas.exception.RegraBadRequestException;
 import br.com.turorial.estudos.vendas.exception.SenhaInvalidaException;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class UsuarioServiceImpl implements UserDetailsService {
+public class UsuarioServiceImpl implements UserDetailsService, UsuarioService {
 
 
     private PasswordEncoder passwordEncoder;
