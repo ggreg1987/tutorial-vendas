@@ -57,5 +57,7 @@ public class SwaggerConfig {
         scopes[0] = authorizationScope;
         SecurityReference reference = new SecurityReference("JWT",scopes);
         List<SecurityReference> securityReferenceList =  new ArrayList<>();
+        securityReferenceList.add(reference);
+        return securityReferenceList;
     }
 }
