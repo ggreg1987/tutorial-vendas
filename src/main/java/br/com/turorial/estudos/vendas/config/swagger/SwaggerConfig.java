@@ -11,6 +11,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
@@ -55,5 +56,6 @@ public class SwaggerConfig {
         AuthorizationScope[] scopes = new AuthorizationScope[1];
         scopes[0] = authorizationScope;
         SecurityReference reference = new SecurityReference("JWT",scopes);
+        List<SecurityReference> securityReferenceList =  new ArrayList<>();
     }
 }
