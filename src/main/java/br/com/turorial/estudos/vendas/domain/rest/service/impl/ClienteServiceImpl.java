@@ -34,7 +34,8 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public Cliente pesquisarId(Long id) {
         Cliente cliente = clienteRepository.findById(id)
-                .orElseThrow(() -> new RegraNotFoundException("Cliente não encontrado"));
+                .orElseThrow(() ->
+                        new RegraNotFoundException("Cliente não encontrado"));
         return cliente;
     }
 
@@ -55,7 +56,8 @@ public class ClienteServiceImpl implements ClienteService {
                 .map(clienteEncontrado -> {
                     cliente.setId(clienteEncontrado.getId());
                     return cliente;
-                }).orElseThrow(() -> new RegraNotFoundException("Cliente não encontrado"));
+                }).orElseThrow(() ->
+                        new RegraNotFoundException("Cliente não encontrado"));
     }
 
     @Override
@@ -65,6 +67,7 @@ public class ClienteServiceImpl implements ClienteService {
                     clienteRepository.deleteById(id);
                     return cliente.getId();
                 })
-                .orElseThrow(() -> new RegraBadRequestException("Cliente não encontrado"));
+                .orElseThrow(() ->
+                        new RegraBadRequestException("Cliente não encontrado"));
     }
 }

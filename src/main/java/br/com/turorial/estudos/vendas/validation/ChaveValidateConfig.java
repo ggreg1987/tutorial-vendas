@@ -13,7 +13,8 @@ public class ChaveValidateConfig {
 
     @Bean
     public MessageSource messageSource() {
-        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        ReloadableResourceBundleMessageSource messageSource =
+                new ReloadableResourceBundleMessageSource();
         messageSource.setBasename("classpath:mensage");
         messageSource.setDefaultEncoding("ISO-8859-1");
 
@@ -22,7 +23,8 @@ public class ChaveValidateConfig {
 
     @Bean
     public LocalValidatorFactoryBean localValidatorFactoryBean() {
-        LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
+        LocalValidatorFactoryBean localValidatorFactoryBean =
+                new LocalValidatorFactoryBean();
         localValidatorFactoryBean.setValidationMessageSource(messageSource());
         return localValidatorFactoryBean;
 

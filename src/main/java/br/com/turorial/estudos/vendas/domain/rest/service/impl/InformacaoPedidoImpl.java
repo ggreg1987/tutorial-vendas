@@ -29,7 +29,8 @@ public class InformacaoPedidoImpl implements InformacaoPedidoService {
         InformacoesPedidoDTO pedido = pedidoRepository
                 .procurarPedido(id)
                 .map(pedidoEncontrado -> pedido(pedidoEncontrado))
-                .orElseThrow(() -> new RegraNotFoundException("Pedido não encontrado"));
+                .orElseThrow(() ->
+                        new RegraNotFoundException("Pedido não encontrado"));
         return pedido;
     }
 
@@ -74,6 +75,7 @@ public class InformacaoPedidoImpl implements InformacaoPedidoService {
                 .map(pedido -> {
                     pedido.setStatusPedido(status);
                     return pedidoRepository.save(pedido);
-                }).orElseThrow(() -> new RegraNotFoundException("Pedido não encontrado"));
+                }).orElseThrow(() ->
+                        new RegraNotFoundException("Pedido não encontrado"));
     }
 }

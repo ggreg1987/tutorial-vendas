@@ -36,6 +36,7 @@ public class ClienteController {
 
     @PutMapping("{id}")
     Cliente update(@PathVariable Long id,@RequestBody @Valid Cliente cliente) {
+
         return service.update(id, cliente);
     }
 

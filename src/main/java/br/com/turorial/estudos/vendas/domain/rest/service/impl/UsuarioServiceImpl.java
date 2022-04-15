@@ -42,7 +42,8 @@ public class UsuarioServiceImpl implements UserDetailsService {
 
     public UserDetails autenticar(Usuario usuario) {
         UserDetails user = loadUserByUsername(usuario.getLogin());
-        boolean matches = passwordEncoder.matches(usuario.getPassword(), user.getPassword());
+        boolean matches = passwordEncoder
+                .matches(usuario.getPassword(), user.getPassword());
         if(matches) {
             return user;
         }
