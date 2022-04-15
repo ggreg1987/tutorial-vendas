@@ -5,6 +5,7 @@ import br.com.turorial.estudos.vendas.domain.entity.Usuario;
 import br.com.turorial.estudos.vendas.domain.rest.dto.CredenciaisDTO;
 import br.com.turorial.estudos.vendas.domain.rest.dto.TokenDTO;
 import br.com.turorial.estudos.vendas.domain.rest.service.impl.UsuarioServiceImpl;
+import br.com.turorial.estudos.vendas.domain.rest.service.interfaces.UsuarioService;
 import br.com.turorial.estudos.vendas.exception.SenhaInvalidaException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,8 +19,8 @@ import org.springframework.web.server.ResponseStatusException;
 @RequiredArgsConstructor
 public class UsuarioController {
 
-    private final UsuarioServiceImpl usuarioService;
-    private final JwtService jwtService;
+    private final UsuarioService usuarioService;
+
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -29,7 +30,7 @@ public class UsuarioController {
 
     @PostMapping("/auth")
     public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais) {
-
+        return usuarioService.autenticarCredenciais(credenciais);
     }
 
 }
