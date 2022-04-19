@@ -1,3 +1,3 @@
 FROM openjdk:8
 WORKDIR /app
-COPY ./target/*.jar .
+COPY ./target/*.jar ./application.jar
